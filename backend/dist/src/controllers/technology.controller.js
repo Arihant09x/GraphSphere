@@ -1,0 +1,3 @@
+import { technologyService } from "../services/technology.service.js";
+export const technologyController = { list: async (req, res) => { const q = req.query; res.json({ data: await technologyService.list(Number(q.limit ?? 20), Number(q.offset ?? 0)) }); }, get: async (req, res) => res.json({ data: await technologyService.get(String(req.params.id)) }), developers: async (req, res) => res.json({ data: await technologyService.developers(String(req.params.id)) }) };
+//# sourceMappingURL=technology.controller.js.map

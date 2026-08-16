@@ -1,0 +1,4 @@
+import { Router } from "express"; import { graphController } from "../controllers/graph.controller.js"; import { authMiddleware } from "../middleware/auth.js"; import { validate } from "../middleware/validate.js"; import { idParamSchema } from "../schemas/common.schema.js"; import { z } from "zod";
+const graphId=z.string().regex(/^(?:[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|d-0000-4000-8000-[0-9]{12})$/i,"Invalid ID format");
+const pathSchema=z.object({query:z.object({fromId:graphId,toId:graphId,maxDepth:z.coerce.number().int().min(1).max(10).default(6)})});
+export const graphRoutes=Router(); graphRoutes.use(authMiddleware); graphRoutes.get("/path",validate(pathSchema),graphController.path); graphRoutes.get("/recommendations/:id",validate(idParamSchema),graphController.recommendations);

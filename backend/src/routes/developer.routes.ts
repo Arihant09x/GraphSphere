@@ -1,0 +1,10 @@
+import { Router } from "express";
+import { developerController } from "../controllers/developer.controller.js";
+import { authMiddleware } from "../middleware/auth.js";
+import { validate } from "../middleware/validate.js";
+import { idParamSchema, paginationSchema } from "../schemas/common.schema.js";
+export const developerRoutes=Router();
+developerRoutes.use(authMiddleware);
+developerRoutes.get("/",validate(paginationSchema),developerController.list);
+developerRoutes.get("/:id/network",validate(idParamSchema),developerController.network);
+developerRoutes.get("/:id",validate(idParamSchema),developerController.get);

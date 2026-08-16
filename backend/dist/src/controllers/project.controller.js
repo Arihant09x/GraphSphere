@@ -1,0 +1,3 @@
+import { projectService } from "../services/project.service.js";
+export const projectController = { list: async (req, res) => { const q = req.query; res.json({ data: await projectService.list(Number(q.limit ?? 20), Number(q.offset ?? 0)) }); }, get: async (req, res) => res.json({ data: await projectService.get(String(req.params.id)) }), contributors: async (req, res) => res.json({ data: await projectService.contributors(String(req.params.id)) }) };
+//# sourceMappingURL=project.controller.js.map

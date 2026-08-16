@@ -1,0 +1,9 @@
+import { Router } from "express";
+import { searchController } from "../controllers/search.controller.js";
+import { authMiddleware } from "../middleware/auth.js";
+import { validate } from "../middleware/validate.js";
+import { searchQuerySchema } from "../schemas/search.schema.js";
+export const searchRoutes = Router();
+searchRoutes.use(authMiddleware);
+searchRoutes.get("/", validate(searchQuerySchema), searchController.search);
+//# sourceMappingURL=search.routes.js.map

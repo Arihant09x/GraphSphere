@@ -1,0 +1,24 @@
+import "dotenv/config";
+import { getSession, closeDriver } from "../src/db/driver.js";
+const labels = ["User", "Developer", "Project", "Technology", "Company", "Skill", "Repository", "Topic"];
+const relations = ["WORKED_ON", "USES", "HAS_SKILL", "KNOWS", "WORKED_AT", "CONTRIBUTED_TO", "BELONGS_TO", "HAS_TOPIC", "OWNS_PROFILE"];
+const session = getSession();
+try {
+    for (const label of labels) {
+        const r = await session.run(`MATCH (n:${label}) RETURN count(n) AS count`);
+        console.log(`${label}: ${r.records[0].get("count").toString()}`);
+    }
+    for (const type of relations) {
+        const r = await session.run(`MATCH ()-[r:${type}]->() RETURN count(r) AS count`);
+        console.log(`${type}: ${r.records[0].get("count").toString()}`);
+    }
+    const sample = await session.run("MATCH (d:Developer)-[:WORKED_ON]->(p:Project)-[:USES]->(t:Technology) RETURN d.name,p.name,t.name LIMIT 1");
+    if (!sample.records.length)
+        throw new Error("Multi-hop verification query returned no data");
+    console.log("Verification succeeded.");
+}
+finally {
+    await session.close();
+    await closeDriver();
+}
+//# sourceMappingURL=verify.js.map

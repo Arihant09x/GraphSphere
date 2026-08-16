@@ -1,0 +1,1 @@
+{"version":3,"file":"technology.controller.d.ts","sourceRoot":"","sources":["../../../src/controllers/technology.controller.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,OAAO,EAAE,QAAQ,EAAE,MAAM,SAAS,CAAC;AAEjD,eAAO,MAAM,oBAAoB;IAAE,IAAI,QAAW,OAAO,OAAK,QAAQ;IAAiJ,GAAG,QAAW,OAAO,OAAK,QAAQ;IAAuE,UAAU,QAAW,OAAO,OAAK,QAAQ;CAA8E,CAAC"}
