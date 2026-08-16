@@ -6,7 +6,7 @@ export declare class DeveloperService {
         offset: number;
     }>;
     get(id: string): Promise<any>;
-    network(id: string, depth: number, limit: number): Promise<any[]>;
+    network(id: string, depth: number, limit: number): Promise<any>;
 }
 export declare const developerService: DeveloperService;
 //# sourceMappingURL=developer.service.d.ts.map
