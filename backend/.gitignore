@@ -1,8 +1,9 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# =====================================================
+# Dependencies
+# =====================================================
 
-# dependencies
-/node_modules
-/.pnp
+node_modules/
+.pnp/
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -10,35 +11,178 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
+.pnpm-store/
+.npm/
 
-/dist/
 
-# next.js
-/.next/
-/out/
+# =====================================================
+# Environment files
+# =====================================================
 
-# production
-/build
+.env
+.env.*
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
 
-# misc
-.DS_Store
-*.pem
+# Keep the example environment file
+!.env.example
+!.env.example.local
 
-# debug
+
+# =====================================================
+# TypeScript build output
+# =====================================================
+
+dist/
+build/
+lib/
+out/
+
+*.tsbuildinfo
+*.d.ts.map
+
+
+# =====================================================
+# Tests and coverage
+# =====================================================
+
+coverage/
+.nyc_output/
+.test-results/
+playwright-report/
+test-results/
+
+
+# =====================================================
+# Logs and runtime files
+# =====================================================
+
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
-.env.local
+pids/
+*.pid
+*.seed
+*.pid.lock
 
-# vercel
-.vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# =====================================================
+# Database and local runtime files
+# =====================================================
+
+*.sqlite
+*.sqlite3
+*.db
+
+data/
+tmp/
+temp/
+.cache/
+
+
+# =====================================================
+# Uploads and generated files
+# =====================================================
+
+uploads/
+storage/
+generated/
+generated-files/
+
+
+# =====================================================
+# Operating system files
+# =====================================================
+
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+
+# =====================================================
+# Editor and IDE files
+# =====================================================
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+
+.idea/
+*.iml
+
+*.swp
+*.swo
+*~
+*.code-workspace
+
+
+# =====================================================
+# Debugging and profiling
+# =====================================================
+
+*.prof
+*.heapprofile
+*.cpuprofile
+debug.log
+
+
+# =====================================================
+# Certificates and private keys
+# =====================================================
+
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+certificates/
+secrets/
+
+
+# =====================================================
+# Docker local overrides
+# =====================================================
+
+docker-compose.override.yml
+
+
+# =====================================================
+# Serverless and deployment files
+# =====================================================
+
+.vercel/
+.netlify/
+.serverless/
+.aws-sam/
+
+
+# =====================================================
+# Package manager files
+# =====================================================
+
+.npmrc.local
+
+
+# =====================================================
+# Miscellaneous
+# =====================================================
+
+*.tgz
+*.tar.gz
+*.tmp
+*.temp
